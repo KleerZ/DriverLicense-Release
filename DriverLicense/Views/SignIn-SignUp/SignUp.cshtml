@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Создание аккаунта";
+}
+
+<link rel="stylesheet" href="~/css/SignIn/signup.css">
+
+<div class="page-background">
+    <div class="container-page">
+        <div class="reg-container">
+            <div class="title">
+                <div class="main-title">Создайте аккаунт</div>
+                <div class="second-title">У Вас уже есть аккаунт? Вы можете&#160;
+                    <a class="signup-a" asp-controller="SignIn" asp-action="SignIn"> Войти в него</a></div>
+            </div>
+            <div class="fields-container">
+                <div class="name-fields">
+                    <input class="name-tbox" type="text" placeholder="Имя">
+                    <input class="name-tbox2" type="text" placeholder="Фамилия">
+                </div>
+                <div class="password-fields">
+                    <input class="password-tbox" type="password" placeholder="Пароль">
+                    <input class="password-tbox" type="password" placeholder="Подтверждение пароля">
+                </div>
+            </div>
+            <div class="button-container">
+                <input class="signup-btn" type="button" value="Создать аккаунт">
+            </div>
+        </div>
+    </div>
+</div>

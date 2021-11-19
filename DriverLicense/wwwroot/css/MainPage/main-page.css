@@ -1,0 +1,108 @@
+body{
+    background-image: url("/pictures/backgrounds/MainPage-Background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    scroll-behavior:smooth;
+    height: 100%;
+    background-size: cover;
+}
+
+html{
+    height: 100%;
+}
+
+.page-background{
+    display: flex;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    min-height: 94vh;
+    margin-top: 6vh;
+    background-color: rgba(0, 0, 0, .8) ;
+    overflow: auto;
+}
+
+.container-page{
+    display: flex;
+    width: 100%;
+    min-height: 94vh;
+    height: auto;
+    align-items: center;
+    left: 0;
+    flex-flow: column;
+    z-index: 10;
+    position: absolute;
+}
+
+.main-info{
+    display: flex;
+    width: 80%;
+    top: 0;
+    left: 0;
+    min-height: 94vh;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    align-content: center;
+    flex-direction: column;
+}
+
+.info-text{
+    font-family: "Google Sans Medium";
+    font-weight: 400;
+    font-size: 100px;
+    color: white;
+    width: 100%;
+    line-height: 98.2%;
+    -webkit-user-select: none;
+}
+
+.info-description{
+    font-family: "Google Sans";
+    font-size: 25px;
+    color: #b1b1b1;
+    width: 100%;
+    line-height: 88.2%;
+    margin-top: 2%;
+    font-weight: 400;
+    -webkit-user-select: none;
+}
+
+.fill-form{
+    display: flex;
+    height: 7%;
+    width: 100%;
+    margin-top: 3%;
+    align-items: center;
+}
+
+.fill-form-btn{
+    border: none;
+    border-radius: 55px;
+    height: 100%;
+    width: 30%;
+    font-size: 27px;
+    color: white;
+    font-family: "Google Sans";
+    background: linear-gradient(to left, #0085ff 50%, #27ae60 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .3s ease;
+}
+
+    .fill-form-btn:hover{
+        background-position: left bottom;
+        box-shadow: 0px 0px 15px 2px black;
+    }
+
+    .fill-form-btn:hover,
+    button:hover {
+        outline: 0;
+        color: #fff;
+    }
+    .fill-form-btn:active,
+    button:active {
+        outline: 0;
+        color: #fff;
+    }

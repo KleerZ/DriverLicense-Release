@@ -1,0 +1,76 @@
+﻿@font-face {
+    font-family: "Google Sans";
+    src: url('~/fonts/GoogleSans-Regular.ttf');
+    font-family: "Google Sans Medium";
+    src: url('~/fonts/GoogleSans-Medium.ttf');
+}
+
+a {
+    transition: color 0.2s linear;
+    overflow: hidden;
+    scroll-behavior:smooth;
+    color: #000000;
+}
+
+a:hover {
+    transition: 0.2s;
+    color: #00a3e5;
+    text-decoration: none;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    background: #f3f3f3;
+    position: fixed;
+    top: 0;
+    height: 6vh;
+    flex-direction: row;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.header-logo{
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-left: 35px;
+    width: 6%;
+}
+
+    .car-logo{
+    width: auto;
+    height: 45%;
+}
+    
+.header_section{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    width: 27%;
+    justify-content: space-between;
+    margin-left: -40px;
+}
+
+.header_item{
+    display: flex;
+    justify-content: center;
+    font-family: "Google Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    overflow: hidden;
+    width: 50%;
+}
+
+.username{
+    display: flex;
+    font-family: Google Sans;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: right;
+    align-items: center;
+    position: static;
+    margin-left: auto;
+    width: 5%;
+}

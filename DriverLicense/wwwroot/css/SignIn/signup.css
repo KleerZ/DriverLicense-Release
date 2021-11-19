@@ -1,0 +1,151 @@
+﻿body{
+    background-image: url("/pictures/backgrounds/Reg-Login-Background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    scroll-behavior:smooth;
+    height: 100%;
+    background-size: cover;
+}
+
+html{
+    height: 100%;
+}
+
+.page-background{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 94vh;
+    margin-top: 6vh;
+    background-color: rgba(0, 0, 0, .5) ;
+    overflow: auto;
+}
+
+.container-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.reg-container{
+    display: flex;
+    border-radius: 55px;
+    width: 560px;
+    height: 395px;
+    background: #fafafa;
+    flex-flow: column;
+    box-shadow: 0px 0px 15px 2px black;
+}
+
+.title{
+    margin-top: 2%;
+}
+
+.main-title{
+    display: flex;
+    justify-content: center;
+    font-family: "Google Sans";
+    font-size: 37px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: black;
+    -webkit-user-select: none;
+}
+
+.second-title{
+    display: flex;
+    justify-content: center;
+    font-family: "Google Sans Medium";
+    font-size: 19px;
+    width: 100%;
+    color: #0a0a0a;
+    -webkit-user-select: none;
+}
+
+.signup-a{
+    color: #0085FF;
+}
+
+.fields-container{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin-top: 4%;
+}
+
+.name-fields{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: 6%;
+    height: 35px;
+    font-family: "Google Sans";
+    font-size: 18px;
+}
+
+.password-fields{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+}
+
+.name-tbox{
+    width: 42%;
+    height: 100%;
+    border: none;
+    border-radius: 55px 0 0 55px;
+    background: #EBEBEB;
+    margin-right: 4px;
+    padding: 20px;
+}
+
+.name-tbox2{
+    width: 42%;
+    height: 100%;
+    border: none;
+    border-radius: 0 55px 55px 0;
+    background: #EBEBEB;
+    padding: 20px;
+}
+
+.password-tbox{
+    width: 85%;
+    margin-bottom: 6%;
+    border: none;
+    border-radius: 55px;
+    background: #EBEBEB;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    height: 40px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-btn{
+    width: 70%;
+    height: 45px;
+    border: none;
+    border-radius: 55px;
+    background: #0085FF;
+    font-family: "Google Sans Medium";
+    font-size: 20px;
+    color: white;
+    transition: background .2s ease-in;
+}
+
+    .signup-btn:hover{
+        background: #101010;
+        transition: background .2s ease-in;
+    }
+
