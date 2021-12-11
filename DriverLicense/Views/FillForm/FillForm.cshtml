@@ -1,0 +1,128 @@
+﻿@using DriverLicense.Models.UsersForms
+@using Data.Repository
+@using Data.Models
+@using DocumentFormat.OpenXml.Spreadsheet
+@{
+    ViewData["Title"] = "Заполнение анкеты";
+}
+
+@* @{ *@
+@*     ViewBag.FirstName = User.FindFirst("FirstName").Value; *@
+@*     ViewBag.LastName = User.FindFirst("LastName").Value; *@
+@*     ViewBag.PhoneNumber = User.FindFirst("PhoneNumber").Value; *@
+@* } *@
+
+@model DriverLicense.Models.Combined.CombinedListUserForms
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<link rel="stylesheet" href="/css/FillForm/fillform.css">
+<link rel="stylesheet" href="/css/FillForm/dropdownlist-category.css">
+
+<div class="page-background">
+    <div class="container-page">
+        <div class="form-container">
+            <div class="main-container">
+                <h1>Анкета</h1>
+                <form class="fields-container" asp-controller="FillForm"
+                      asp-action="AddForm" method="post">
+                    <div class="form-field">
+                        <input asp-for="UsersFormsViewModel.FirstName" value="@ViewBag.FirstName"  class="input-field" type="text" placeholder="Имя">
+                    </div>
+                    <span asp-validation-for="UsersFormsViewModel.FirstName"></span>
+                    <div class="form-field">
+                        <input asp-for="UsersFormsViewModel.LastName" value="@ViewBag.LastName"   class="input-field" type="text" placeholder="Фамилия">
+                    </div>
+                    <span asp-validation-for="UsersFormsViewModel.LastName"></span>
+                    <div class="form-field">
+                        <input asp-for="UsersFormsViewModel.PhoneNumber" value="@ViewBag.PhoneNumber"  class="input-field" type="text" placeholder="Номер телефона">
+                    </div>
+                    <span asp-validation-for="UsersFormsViewModel.PhoneNumber"></span>
+                    <div class="form-field">
+                        <input asp-for="UsersFormsViewModel.PassportID" value="@ViewBag.PassportID"  class="input-field" type="text" placeholder="Номер паспорта">
+                    </div>
+                    <span asp-validation-for="UsersFormsViewModel.PassportID"></span>
+
+                    @* <div class="form-field"> *@
+                    @*     <input asp-for="Category" class="input-field" type="text" placeholder="Категория"> *@
+                    @* </div> *@
+                    @* <span asp-validation-for="Category"></span> *@
+
+                    <div class="containerz">
+                        <div class="dropdown">
+                            <div class="select">
+                                <span> <input class="hidinp" value="@ViewBag.Category"  asp-for="UsersFormsViewModel.Category" placeholder="Категории:" type="text"></span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <ul class="dropdown-menu">
+                                @foreach (var item in @Model.Categories)
+                                {
+                                    <li id="@item.Name">@item.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <span asp-validation-for="UsersFormsViewModel.Category"></span>
+
+                    @* <div class="form-field"> *@
+                    @*     <input asp-for="MilitaryTicket" class="input-field" type="text" placeholder="Наличие военного билета"> *@
+                    @* </div> *@
+                    @* <span asp-validation-for="MilitaryTicket"></span> *@
+
+                    <div class="containerz">
+                        <div class="dropdown">
+                            <div class="select">
+                                <span><input class="hidinp" value="@ViewBag.MilitaryTicket" placeholder="Наличие военного билета:" asp-for="UsersFormsViewModel.MilitaryTicket" type="text"></span>
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li id="Есть">Есть</li>
+                                <li id="Нет">Нет</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span asp-validation-for="UsersFormsViewModel.MilitaryTicket"></span>
+
+
+                    @* <div class="form-field"> *@
+                    @*     <input asp-for="HealthGroup" class="input-field" type="text" placeholder="Группа здоровья"> *@
+                    @* </div> *@
+                    @* <span asp-validation-for="HealthGroup"></span> *@
+
+                    <input class="send-btn" type="submit" value="Отправить анкету">
+                </form>
+            </div>
+            <div class="right-img">
+                <div class="img"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <script src="js/FillForm/dropdownlist-category.js"></script> *@
+
+<script >
+/*Dropdown Menu*/
+$('.dropdown').click(function () {
+    $(this).attr('tabindex', 1).focus();
+    $(this).toggleClass('active');
+    $(this).find('.dropdown-menu').slideToggle(300);
+});
+$('.dropdown').focusout(function () {
+    // $(this).removeClass('active');
+    $(this).find('.dropdown-menu').slideUp(300);
+});
+$('.dropdown .dropdown-menu li').click(function () {
+    // $(this).parents('.dropdown').find('span').text($(this).text());
+    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+});
+/*End Dropdown Menu*/
+
+$('.dropdown-menu li').click(function () {
+    var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+        msg = '<span class="msg">Hidden input value: ';
+    $('.msg').html(msg + input + '</span>');
+}); 
+</script>

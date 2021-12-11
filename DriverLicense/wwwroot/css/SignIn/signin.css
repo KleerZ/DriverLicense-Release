@@ -29,13 +29,15 @@ html{
     align-items: center;
     align-content: center;
     width: 100%;
+    flex-direction: column;
 }
 
 .reg-container{
     display: flex;
     border-radius: 55px;
     width: 560px;
-    height: 340px;
+    height: auto;
+    min-height: 340px;
     background: #fafafa;
     flex-flow: column;
     box-shadow: 0px 0px 15px 2px black;
@@ -79,6 +81,7 @@ html{
 
 .name-fields{
     display: flex;
+    width: 100%;
     flex-flow: row;
     justify-content: center;
     margin-bottom: 6%;
@@ -89,24 +92,26 @@ html{
 
 .password-fields{
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     flex-flow: column;
     width: 100%;
+    margin-bottom: 4%;
 }
 
 .name-tbox{
-    width: 42%;
+    width: 100%;
     height: 100%;
     border: none;
     border-radius: 55px 0 0 55px;
     background: #EBEBEB;
-    margin-right: 4px;
+    margin-right: 7px;
     padding: 20px;
 }
 
 .name-tbox2{
-    width: 42%;
+    width: 100%;
     height: 100%;
     border: none;
     border-radius: 0 55px 55px 0;
@@ -115,8 +120,7 @@ html{
 }
 
 .password-tbox{
-    width: 85%;
-    margin-bottom: 6%;
+    width: 90%;
     border: none;
     border-radius: 55px;
     background: #EBEBEB;
@@ -142,6 +146,8 @@ html{
     font-size: 20px;
     color: white;
     transition: background .2s ease-in;
+    margin-top: 2%;
+    margin-bottom: 3%;
 }
 
 .signup-btn:hover{
@@ -149,3 +155,73 @@ html{
     transition: background .2s ease-in;
 }
 
+.error-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 8vh;
+    color: black;
+}
+
+.field-validation-valid{
+    color: black;
+}
+
+.error-cont{
+    display: flex;
+    height: 100%;
+    flex-flow: column;
+    width: 45%;
+    align-items: center;
+}
+
+.error-span{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    margin-top: 1%;
+}
+
+.field-validation-error{
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    color: red;
+    font-weight: 500;
+}
+
+.phone-fields{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+.phone-tbox{
+    width: 90%;
+    border: none;
+    border-radius: 55px;
+    background: #EBEBEB;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    height: 40px;
+}
+
+.admin-link{
+    color: white;
+    background: #1b6ec2;
+    font-family: "Google Sans Medium";
+    margin-top: 2%;
+    border-radius: 25px;
+    width: 18vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,136 @@
+﻿body{
+    background-image: url("/pictures/backgrounds/LicenseInfo-Background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    scroll-behavior:smooth;
+    height: 100%;
+    background-size: cover;
+}
+
+html{
+    height: 100%;
+}
+
+.page-background{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 94vh;
+    margin-top: 6vh;
+    background-color: rgba(0, 0, 0, .8) ;
+    overflow: auto;
+}
+
+.container-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info-container{
+    display: flex;
+    align-items: center;
+    width: 1250px;
+    height: 650px;
+    border-radius: 35px;
+    background: #ffffff;
+    flex-flow: column;
+}
+
+.info-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-family: "Google Sans";
+    font-weight: 600;
+    width: 100%;
+    -webkit-user-select: none;
+}
+
+.info-content{
+    display: flex;
+    flex-flow: row;
+    height:40%;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.info-age{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 30%;
+    height: 100%;
+    border: 2px solid black;
+    margin-left: 3%;
+    border-radius: 10px;
+    border: none;
+    background: #d5d5d5;
+}
+
+.age-title{
+    font-family: "Google Sans Medium";
+    font-size: 20px;
+    text-align: center;
+}
+
+.age-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-family: "Google Sans";
+}
+
+.info-license{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    border: 2px solid black;
+    height: 100%;
+    margin-left: 2%;
+    border-radius: 10px;
+    border: none;
+    background: #d5d5d5;
+}
+
+.info-container2{
+    display: flex;
+    width: 1250px;
+    height: 650px;
+    border-radius: 35px;
+    background: #ffffff;
+    flex-flow: row;
+    margin-top: 3%;
+}
+
+.info-price{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 40%;
+    height: 80%;
+    border: 2px solid black;
+    margin-left: 3%;
+    border-radius: 10px;
+    border: none;
+    background: #d5d5d5;
+}
+
+.info-where{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: 50%;
+    height: 80%;
+    border: 2px solid black;
+    margin-left: 3%;
+    border-radius: 10px;
+    border: none;
+    background: #d5d5d5;
+}

@@ -1,0 +1,32 @@
+﻿@using Data.Models
+@using Data.Repository
+@{
+    ViewData["Title"] = "Профиль пользователя";
+}
+
+@{
+    ViewBag.FirstName = User.FindFirst("FirstName").Value;
+    ViewBag.LastName = User.FindFirst("LastName").Value;
+    ViewBag.PhoneNumber = User.FindFirst("PhoneNumber").Value;
+}
+
+<link rel="stylesheet" href="/css/UserProfile/userprofile.css">
+
+<div class="page-background">
+    <div class="container-page">
+        <div class="profile-container">
+            <span class="title">Профиль пользователя</span>
+            <div class="info-cont">
+                <span class="info">Имя: @ViewBag.FirstName</span>
+                <span class="info">Фамилия: @ViewBag.LastName</span>
+                <span class="info">Номер телефона: @ViewBag.PhoneNumber</span>
+                <span class="info">Анкета отправлена: @ViewBag.Res</span>
+            </div>
+            <form asp-controller="UserProfile" asp-action="Index" method="post">
+                <div class="btn-div">
+                    <input class="btn-e" type="submit" value="Выйти">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

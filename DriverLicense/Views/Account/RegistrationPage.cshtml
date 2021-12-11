@@ -1,0 +1,58 @@
+﻿@using DriverLicense.Models.Account
+
+@model RegistrationViewModel
+
+@{
+    ViewData["Title"] = "Создание аккаунта";
+}
+
+<link rel="stylesheet" href="~/css/SignIn/signup.css">
+
+<div class="page-background">
+    <div class="container-page">
+        <div class="reg-container">
+            <div class="title">
+                <div class="main-title">Создайте аккаунт</div>
+                <div class="second-title">
+                    У Вас уже есть аккаунт? Вы можете&#160;
+                    <a class="signup-a" asp-controller="Login" asp-action="Index"> Войти в него</a>
+                </div>
+            </div>
+            <form asp-controller="Registration" asp-action="Index" method="post">
+                <div class="fields-container">
+                    <div class="name-fields">
+                        <div class="error-cont">
+                            <input asp-for="FirstName" class="name-tbox" type="text" placeholder="Имя">
+                            <span asp-validation-for="FirstName"></span>
+                        </div>
+                        <div class="error-cont">
+                            <input asp-for="LastName" class="name-tbox2" type="text" placeholder="Фамилия">
+                            <span asp-validation-for="LastName"></span>
+                        </div>
+                    </div>
+                    <div class="phone-field">
+                        <div class="error-cont-phonenum">
+                            <input asp-for="PhoneNumber" class="phone-tbox" type="text" placeholder="Номер телефона">
+                            <span asp-validation-for="PhoneNumber"></span>
+                        </div>
+                    </div>
+                    <div class="password-fields">
+                        <div class="error-cont-password">
+                            <input asp-for="Password" class="password-tbox" type="password" placeholder="Пароль">
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <div class="error-cont-password">
+                            <input asp-for="PasswordCheck" class="password-tbox" type="password" placeholder="Подтверждение пароля">
+                            <span asp-validation-for="PasswordCheck"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <input class="signup-btn" type="submit" value="Создать аккаунт">
+                </div>
+            </form>
+        </div>
+        
+         <a asp-controller="AdminReg" asp-action="Index" class="admin-link" type="submit">Администратор</a>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@using Microsoft.EntityFrameworkCore.Infrastructure
+@model Data.Models.UsersForms
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="~/lib/FileSaver.js"></script>
+<script src="~/lib/jquery.wordexport.js"></script>
+
+
+<body style="overflow-y: hidden">
+<div style=" display: flex; justify-content: center; align-items: center; align-content: center;background: black;top: 0;left: 0;width: 100%;min-height: 94vh;margin-top: 6vh;flex-direction: column;">
+    <div class="license" style="background: white; border-radius: 25px; width: 500px; height: 365px;display: flex; flex-direction: column;">
+        <div style="font-family: 'Google Sans Medium'; text-align: center; margin-top: 2%; font-size: 18px; width: 100%; display: flex; justify-content: center">Водительское удостоверение</div>
+
+        <hr>
+
+        <span style="font-family: 'Google Sans';">Имя: @Model.FullName.Split()[0]</span><br>
+        <span style="font-family: 'Google Sans'; ">Фамилия: @Model.FullName.Split()[1]</span><br>
+        <span style="font-family: 'Google Sans'; ">Номер телефона: @Model.PhoneNumber</span><br>
+        <span style="font-family: 'Google Sans'; ">Категория вождения: @Model.Category</span><br>
+        <span style="font-family: 'Google Sans'; ">Дата выдачи: @Model.Date</span><br>
+        <span style="font-family: 'Google Sans'; ">Военный билет: @Model.MilitaryTicket</span><br>
+
+        <hr>
+    </div>
+
+    <form asp-controller="Complete" asp-action="Index">
+        <input style="margin-top: 40px;border: none; border-radius: 25px; font-family: 'Google Sans Medium'" class="printt" asp-controller="Complete" asp-action="Index" type="submit" value="Создать">
+    </form>
+    <a style="margin-top: 20px;border-radius: 25px;border: none; width: 77px;color: black;text-align: center; background: white; font-family: 'Google Sans Medium'" asp-action="Index" asp-controller="Admin" type="button" value="Назад">Назад</a>
+    @* <a class="printt" href="" >Создать</a> *@
+
+</div>
+
+</body>
+
+<script>
+    jQuery(document).ready(function($) {
+          $(".printt").click(function(event) {
+            $(".license").wordExport();
+          });
+        });
+</script>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Анкета уже отправлена";
+}
+
+<link rel="stylesheet" href="/css/FillForm/form-is-exist.css">
+
+<div class="container-page">
+    <span>Ваша анкета уже отправлена!</span>
+    <a asp-controller="Home" asp-action="Index" class="btn">Вернуться на Главную страницу</a>
+    <a class="btn" asp-controller="EditForm" asp-action="Index">Редактировать анкету</a>
+</div>

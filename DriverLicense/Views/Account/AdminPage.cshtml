@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "Страница администратора";
+    var formm = ViewBag.Form;
+    var i = 0;
+}
+
+@model DriverLicense.Models.Combined.CombineFormsRadio
+
+<link rel="stylesheet" href="~/css/AdminPage/admin-panel.css">
+<link rel="stylesheet" href="~/css/AdminPage/admin-table.css">
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="js/WordExport/FileSaver.js"></script>
+<script src="js/WordExport/jquery.wordexport.js"></script>
+
+@Html.ValidationSummary()
+
+<div class="page-background">
+    <div class="container-page">
+        <span>
+            <div class="title-form">
+                <form class="form-titles"  asp-controller="Admin" asp-action="SignOut">
+                    <label class="admin-title">Панель администратора</label>
+                    <input class="exit-btn" type="submit" value="Выйти">
+                </form>
+                @* <a asp-action="Index" asp-controller="CompletedLicenses" class="completed-btn">Созданные удостоверения</a> *@
+            </div>
+        </span>
+        <div class="content">
+            <div class="func">
+                <div class="search">
+                    <form class="search-form" asp-controller="Search" asp-action="Index">
+                        <input class="search-input" type="text" name="search-input" placeholder="Поиск">
+                        <input class="search-btn" type="submit" value="Поиск">
+                    </form>
+                </div>
+                <div class="filtration">
+                    <span class="func-title">Фильтрация</span>
+                    <form asp-controller="Filtration" asp-action="Index">
+
+                        <div class="filtr-block">
+                            <label class="label-sort" for="f-name">Имя, Фамилия</label>
+                            @Html.RadioButtonFor(radio => radio.ClickedRadioButton.Text, "Name")
+                        </div>
+
+                        <div class="filtr-block">
+                            <label class="label-sort" for="f-name">Военный билет</label>
+                            @Html.RadioButtonFor(radio => radio.ClickedRadioButton.Text, "Military")
+                        </div>
+
+                        <div class="filtr-block">
+                            <label class="label-sort" for="f-phone">Категория</label>
+                            @Html.RadioButtonFor(radio => radio.ClickedRadioButton.Text, "Category")
+                        </div>
+
+                        <div class="filtr-block">
+                            <label class="label-sort" for="f-date">Дата</label>
+                            @Html.RadioButtonFor(radio => radio.ClickedRadioButton.Text, "Date")
+                        </div>
+
+                        <div class="filtr-block">
+                            <label class="label-sort" for="f-date">Id клиента</label>
+                            @Html.RadioButtonFor(radio => radio.ClickedRadioButton.Text, "UserID")
+                        </div>
+
+                        <div class="filtr-input">
+                            <input asp-for="FiltrType.Type" placeholder="Данные" asp-controller="Filtr" asp-action="Index" class="filtr-field" type="text">
+                            <input class="filtr-btn" type="submit" value="Фильтрация">
+                        </div>
+                        <span class="error-span" asp-validation-for="ClickedRadioButton.Text"></span><br>
+                        <span class="error-span" asp-validation-for="FiltrType.Type"></span>
+                    </form>
+                </div>
+
+                <div class="sort">
+                    <span class="func-title">Сортировка</span>
+                    <form action="/" method="post">
+                        <div class="sort-type">
+                            <span class="sort-title">Номер</span>
+                            <div class="typesort">
+                                <input asp-route-type="0" asp-controller="Sort" asp-action="SortNumber" class="tsort-btn" type="submit" value="По возрастанию">
+                                <input asp-route-type="1" asp-controller="Sort" asp-action="SortNumber" class="tsort-btn" type="submit" value="По убыванию">
+                            </div>
+                        </div>
+
+                        <div class="sort-type">
+                            <span class="sort-title">Дата</span>
+                            <div class="typesort">
+                                <input asp-route-type="0" asp-controller="Sort" asp-action="SortDate" class="tsort-btn" type="submit" value="По возрастанию">
+                                <input asp-route-type="1" asp-controller="Sort" asp-action="SortDate" class="tsort-btn" type="submit" value="По убыванию">
+                            </div>
+                        </div>
+
+                        <div class="sort-type">
+                            <span class="sort-title">Имя, Фамилия</span>
+                            <div class="typesort">
+                                <input asp-route-type="0" class="tsort-btn" asp-controller="Sort" asp-action="SortName" type="submit" value="По возрастанию">
+                                <input asp-route-type="1" class="tsort-btn" asp-controller="Sort" asp-action="SortName" type="submit" value="По убыванию">
+                            </div>
+                        </div>
+
+                        <div class="sort-type">
+                            <span class="sort-title">Номер телефона</span>
+                            <div class="typesort">
+                                <input asp-route-type="0" asp-controller="Sort" asp-action="SortPhone" class="tsort-btn" type="submit" value="По возрастанию">
+                                <input asp-route-type="1" asp-controller="Sort" asp-action="SortPhone" class="tsort-btn" type="submit" value="По убыванию">
+                            </div>
+                        </div>
+
+                        <div class="sort-type">
+                            <span class="sort-title">Категория прав</span>
+                            <div class="typesort">
+                                <input asp-route-type="0" asp-controller="Sort" asp-action="SortCategory" class="tsort-btn" type="submit" value="По возрастанию">
+                                <input asp-route-type="1" asp-controller="Sort" asp-action="SortCategory" class="tsort-btn" type="submit" value="По убыванию">
+                            </div>
+                        </div>
+
+                        <div class="sort-type">
+                            <span class="sort-title">Номер пасспорта</span>
+                            <div class="typesort">
+                                <input asp-route-type="0" asp-controller="Sort" asp-action="SortPassport" class="tsort-btn" type="submit" value="По возрастанию">
+                                <input asp-route-type="1" asp-controller="Sort" asp-action="SortPassport" class="tsort-btn" type="submit" value="По убыванию">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="clear-upd-block">
+                    <form asp-controller="ClearTable" asp-action="ClearTable" method="post">
+                        <input class="clear-btn" type="submit" value="Очистить таблицу">
+                    </form>
+
+                    <form asp-controller="UpdateTable" asp-action="Index">
+                        <input class="update-btn" type="submit" value="Обновить">
+                    </form>
+                </div>
+
+
+                <form asp-controller="ExportToExcel" asp-action="ExportToExcel">
+                    <input asp-controller="ExportToExcel" asp-action="ExportToExcel" class="export-btn" type="submit" value="Excel">
+                </form>
+
+            </div>
+
+            <div class="table-cont">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        @* <th>Номер</th> *@
+                        <th>Дата добавления</th>
+
+                        <th>ID клиента</th>
+
+                        <th>Имя, Фамилия</th>
+                        <th>Военный билет</th>
+                        <th>Номер телефона</th>
+                        <th>Категория прав</th>
+                        <th>Номер паспорта</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @try
+                    {
+                        @foreach (var item in formm)
+                        {
+                            <tr>
+                                @* <td>@item.ID</td> *@
+                                <td>@item.Date</td>
+
+                                <td>@item.Users.ID</td>
+
+                                <td>@item.FullName</td>
+                                <td>@item.MilitaryTicket</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>@item.Category</td>
+                                <td>@item.PassportID</td>
+                                <td>
+                                    <form asp-controller="Admin" asp-action="CancelForm" asp-route-id="@item.ID">
+                                        <input class="cancel-btn" asp-controller="Admin" asp-action="CancelForm" asp-route-id="@item.ID" type="submit" value="Отменить">
+                                    </form>
+                                    <form asp-controller="ChangeData" asp-action="Index" asp-route-id="@item.ID">
+                                        <input class="change-btnn" asp-route-id="@item.ID" asp-controller="ChangeData" asp-action="Index" type="submit" value="Изменить">
+                                    </form>
+                                </td>
+                                <td>
+                                    @* <form asp-controller="Admin" *@
+                                    @*       asp-action="CancelForm" asp-route-id="@item.ID"> *@
+                                    @*     <input asp-controller="Admin" asp-action="CancelForm" asp-route-id="@item.ID" type="submit" value="Создать"> *@
+                                    @* </form> *@
+
+                                    @* <form asp-controller="ExportToWord" asp-action="Index" asp-route-id="@item.ID"> *@
+                                    @*     <input asp-controller="ExportToWord" asp-action="Index" class="exportword" asp-route-id="@item.ID" type="submit" value="Создать"> *@
+                                    @* </form> *@
+                                    <a class="printt" asp-controller="ExportToWord" asp-action="Index" asp-route-id="@item.ID">Создать</a>
+
+                                </td>
+                            </tr>
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function($) {
+          $(".printt").click(function(event) {
+            $(".page-background").wordExport();
+          });
+        });
+</script>

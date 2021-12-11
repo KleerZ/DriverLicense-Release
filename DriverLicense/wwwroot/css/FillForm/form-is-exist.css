@@ -1,0 +1,52 @@
+body{
+    background: url("/pictures/FillForm/FormIsExist.png");
+    background-size: 100%;
+    background-size: cover;
+}
+
+.container-page{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 94vh;
+    margin-top: 6vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+span{
+    font-family: "Google Sans Medium";
+    font-size: 65px;
+    font-weight: 500;
+    color: white;
+    -webkit-user-select: none;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    width: 28%;
+    border-radius: 55px;
+    border: none;
+    font-family: "Google Sans";
+    font-weight: 500;
+    font-size: 23px;
+    background: #0085ff;
+    color: white;
+    transition: background .2s linear;
+    margin-top: 3%;
+    transition: all .3s linear;
+}
+
+    .btn:hover{
+        color: white;
+        transition: all .3s linear;
+        background: #27ae60;
+    }

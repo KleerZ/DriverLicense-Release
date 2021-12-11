@@ -29,16 +29,19 @@ html{
     align-items: center;
     align-content: center;
     width: 100%;
+    flex-direction: column;
 }
 
 .reg-container{
     display: flex;
     border-radius: 55px;
     width: 560px;
-    height: 395px;
+    height: auto;
+    min-height: 395px;
     background: #fafafa;
     flex-flow: column;
     box-shadow: 0px 0px 15px 2px black;
+    transition: width 3s linear;
 }
 
 .title{
@@ -93,20 +96,21 @@ html{
     align-items: center;
     flex-flow: column;
     width: 100%;
+    margin-bottom: 0%;
 }
 
 .name-tbox{
-    width: 42%;
+    width: 100%;
     height: 100%;
     border: none;
     border-radius: 55px 0 0 55px;
     background: #EBEBEB;
-    margin-right: 4px;
+    margin-right: 7px;
     padding: 20px;
 }
 
 .name-tbox2{
-    width: 42%;
+    width: 100%;
     height: 100%;
     border: none;
     border-radius: 0 55px 55px 0;
@@ -116,7 +120,7 @@ html{
 
 .password-tbox{
     width: 85%;
-    margin-bottom: 6%;
+    margin-bottom: 0%;
     border: none;
     border-radius: 55px;
     background: #EBEBEB;
@@ -142,6 +146,7 @@ html{
     font-size: 20px;
     color: white;
     transition: background .2s ease-in;
+    margin-bottom: 3%;
 }
 
     .signup-btn:hover{
@@ -149,3 +154,80 @@ html{
         transition: background .2s ease-in;
     }
 
+.error-container{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-cont{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: 42%;
+}
+
+.field-validation-error{
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    color: red;
+    margin-top: 4px;
+    font-weight: 500;
+    align-content: center;
+    height: 100%;
+}
+
+.error-cont-password{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 6%;
+}
+
+.phone-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    margin-bottom: 6%;
+}
+
+.phone-tbox{
+    width: 85%;
+    margin-bottom: 0%;
+    border: none;
+    border-radius: 55px;
+    background: #EBEBEB;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    height: 40px;
+}
+
+.error-cont-phonenum{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0%;
+}
+
+.admin-link{
+    color: white;
+    background: #1b6ec2;
+    font-family: "Google Sans Medium";
+    margin-top: 2%;
+    border-radius: 25px;
+    width: 18vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

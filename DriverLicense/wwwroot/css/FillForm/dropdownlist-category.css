@@ -1,0 +1,103 @@
+﻿/** {*/
+/*    outline: 0;*/
+/*    font-family: sans-serif*/
+/*}*/
+body {
+    background-color: #fafafa;
+    font-family: "Google Sans Medium";
+}
+
+span{
+    -webkit-user-select: none;
+}
+
+span.msg,
+span.choose {
+    color: #555;
+    padding: 5% 0 5%;
+    display: inherit;
+}
+.containerz {
+    position: relative;
+    width: 80%;
+    border-radius: 55px;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+/*Styling Selectbox*/
+.dropdown {
+    width: 100%;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 55px;
+    box-shadow: 0 0 2px rgb(204, 204, 204);
+    transition: all .5s ease;
+    position: relative;
+    font-size: 14px;
+    color: #474747;
+    text-align: left
+}
+.dropdown .select {
+    cursor: pointer;
+    display: flex;
+    padding-left: 5%;
+    align-items: center;
+    /*padding: 10px;*/
+    height: 5vh;
+    border-radius: 55px;
+    background: #f1f1f1;
+}
+.dropdown .select > i {
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    float: right;
+    line-height: 20px
+}
+.dropdown:hover {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 55px;
+}
+.dropdown:active {
+    background-color: #f1f1f1
+}
+.dropdown.active:hover,
+.dropdown.active {
+    box-shadow: 0 0 4px rgb(204, 204, 204);
+    border-radius: 25px 25px 0 0;
+    background-color: #f1f1f1
+}
+.dropdown.active .select > i {
+    transform: rotate(-90deg)
+}
+.dropdown .dropdown-menu {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    margin-top: 1px;
+    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    border-radius: 0 1px 25px 25px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9
+}
+.dropdown .dropdown-menu li {
+    padding: 10px;
+    transition: all .2s ease-in-out;
+    cursor: pointer
+}
+.dropdown .dropdown-menu {
+    padding: 0;
+    list-style: none
+}
+.dropdown .dropdown-menu li:hover {
+    background-color: #f2f2f2
+}
+.dropdown .dropdown-menu li:active {
+    background-color: #e2e2e2
+}
